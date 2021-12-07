@@ -76,33 +76,23 @@ class LinkedList:
 
     def reverse(self):
         prev = None
-        current = self.head
+        cur = self.head
+        next = None
 
         #check whether the list is empty
-        if current is None:
+        if cur is None:
             print("List is empty")
             return
 
-        #
-        while current is not None:
-            next = current.pointer
-            current.pointer = prev
-            next.pointer = current
-
-
-
-
-
-
-
-        
-
-
-        
-
-
-
-
+        #traverse the list as you reverse the pointers
+        while cur is not None:
+            next = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next
+            
+        #once you get to the end of the list make the last node into head
+        self.head = prev
 
 
 
